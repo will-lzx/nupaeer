@@ -2,16 +2,7 @@ import React from "react";
 
 // reactstrap components
 import {
-  Button,
-  NavItem,
-  NavLink,
-  Nav,
-  TabContent,
-  TabPane,
   Container,
-  Row,
-  Col,
-  UncontrolledTooltip,
 } from "reactstrap";
 
 // core components
@@ -20,7 +11,6 @@ import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 
 function AboutPage() {
-  const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");
