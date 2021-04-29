@@ -17,7 +17,7 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // styles for this kit
 import "assets/css/bootstrap.min.css";
@@ -33,7 +33,7 @@ import AboutPage from "views/examples/AboutPage.js";
 import NextPage from "views/examples/NextPage.js";
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <Switch>
       <Switch>
         <Route path="/index" render={(props) => <Index {...props} />} />
@@ -61,6 +61,6 @@ ReactDOM.render(
         <Redirect from="/" to="/index" />
       </Switch>
     </Switch>
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
