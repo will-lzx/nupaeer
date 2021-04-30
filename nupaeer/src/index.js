@@ -31,6 +31,7 @@ import LoginPage from "views/examples/LoginPage.js";
 import LandingPage from "views/examples/LandingPage.js";
 import AboutPage from "views/examples/AboutPage.js";
 import NextPage from "views/examples/NextPage.js";
+import JoinPage from "views/examples/JoinPage.js";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -52,6 +53,10 @@ ReactDOM.render(
         <Route
           path="/next-page"
           render={(props) => <NextPage {...props} />}
+        />
+        <Route
+          path="/join-page"
+          render={(props) => <JoinPage {...props} />}
         />
         <Route
           path="/login-page"

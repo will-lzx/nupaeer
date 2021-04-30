@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
-  Button,
   Collapse,
   DropdownToggle,
   DropdownMenu,
@@ -108,19 +107,13 @@ function IndexNavbar() {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <Button
-                  className="nav-link btn-neutral"
+                <NavLink
+                  href="/join-page"
                   color="info"
-                  href="#pablo"
-                  id="upgrade-to-pro"
-                  onClick={(e) => e.preventDefault()}
                 >
-                  <i className="now-ui-icons arrows-1_share-66 mr-1"></i>
+                  <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
                   <p>诚邀代理</p>
-                </Button>
-                <UncontrolledTooltip target="#upgrade-to-pro">
-                  Cooming soon!
-                </UncontrolledTooltip>
+                </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink
