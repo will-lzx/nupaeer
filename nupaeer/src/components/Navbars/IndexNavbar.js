@@ -109,7 +109,6 @@ function IndexNavbar() {
               <NavItem>
                 <NavLink
                   href="/join-page"
-                  color="info"
                 >
                   <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
                   <p>诚邀代理</p>
