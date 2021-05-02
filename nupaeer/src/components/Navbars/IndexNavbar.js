@@ -111,7 +111,7 @@ function IndexNavbar() {
                   href="/join-page"
                 >
                   <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                  <p>诚邀代理</p>
+                  <p>申请代理</p>
                 </NavLink>
               </NavItem>
               <NavItem>
