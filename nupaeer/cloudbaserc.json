@@ -1,9 +1,9 @@
 {
-    "envId": "nupaeer-4gtimdgeff71d0b7",
+    "envId": "leadsun-3gdsjeyzd3c7c324",
     "version": "2.0",
     "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
     "functionRoot": "./functions",
-    "functions": [],
+    "functions": ["my_hello_world"],
     "region": "ap-shanghai",
     "framework": {
         "name": "leadsun",

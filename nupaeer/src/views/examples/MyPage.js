@@ -9,8 +9,10 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
+import Order from "../index-sections/Order";
+import Delegate from "../index-sections/Delegate";
 
-function NextPage() {
+function MyPage() {
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
@@ -27,20 +29,16 @@ function NextPage() {
       <IndexNavbar />
       <div className="wrapper">
         <IndexHeader />
-        <div className="section">
+        <div color="section">
           <Container>
-            <h3 className="title">第二代产品</h3>
-            <h4 className="title">特点升级</h4>
-            <h5 className="description">
-              <p>含量提升，更多口味</p>
-              <p>即将推出</p>
-            </h5>
+            <Order></Order>
+            <Delegate></Delegate>
           </Container>
         </div>
+        <DarkFooter />
       </div>
-      <DarkFooter />
     </>
   );
 }
 
-export default NextPage;
+export default MyPage;

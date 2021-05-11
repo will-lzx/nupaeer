@@ -2,12 +2,12 @@ import React from "react";
 
 // reactstrap components
 import {
+  Form,
   Button,
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  Form,
   Input,
   InputGroupAddon,
   InputGroupText,
@@ -19,32 +19,30 @@ import {
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
+import IndexHeader from "components/Headers/IndexHeader";
+// import Carousel from "../index-sections/Carousel.js";
 
 function LoginPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   React.useEffect(() => {
-    document.body.classList.add("login-page");
+    document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
     return function cleanup() {
-      document.body.classList.remove("login-page");
+      document.body.classList.remove("index-page");
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
   return (
     <>
       <IndexNavbar />
-      <div className="page-header clear-filter" filter-color="white">
-        <div
-          className="page-header-image"
-          style={{
-            backgroundImage: "url(" + require("assets/img/WechatIMG61.jpeg") + ")",
-          }}
-        ></div>
-        <div className="content">
+      <div className="wrapper">
+        <IndexHeader/>
+        <div className="section">
+          {/* <Carousel /> */}
           <Container>
             <Col className="ml-auto mr-auto" md="4">
               <Card className="card-login card-plain">
@@ -97,11 +95,10 @@ function LoginPage() {
                   </CardBody>
                   <CardFooter className="text-center">
                     <Button
-                      block
                       className="btn-round"
                       color="info"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      href="/my-page"
+                      // onClick={(e) => e.preventDefault()}
                       size="lg"
                     >
                       登录
@@ -133,9 +130,9 @@ function LoginPage() {
               </Card>
             </Col>
           </Container>
+          </div>
         </div>
         <DarkFooter />
-      </div>
     </>
   );
 }

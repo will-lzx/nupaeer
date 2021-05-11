@@ -41,11 +41,11 @@ function ProfilePageHeader() {
           <h3 className="title">Leadsun</h3>
           <div className="content">
             <div className="social-description">
-              <h2>26</h2>
+              <h2>13500</h2>
               <p>总销量</p>
             </div>
             <div className="social-description">
-              <h2>26</h2>
+              <h2>12</h2>
               <p>代理商</p>
             </div>
           </div>

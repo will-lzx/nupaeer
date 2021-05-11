@@ -9,11 +9,6 @@ import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 
-// sections for this page
-
-import Carousel from "./index-sections/Carousel.js";
-
-
 function Index() {
   React.useEffect(() => {
     document.body.classList.add("index-page");
@@ -32,7 +27,6 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="section">
-          <Carousel />
           <div className="container">
             <h3 className="title">产品介绍</h3>
             <h4 className="title">优点</h4>

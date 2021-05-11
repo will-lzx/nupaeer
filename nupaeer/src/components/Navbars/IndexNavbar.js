@@ -116,20 +116,44 @@ function IndexNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="/login-page"
-                >
-                  <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                  <p>代理商</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
                   href="/about-page"
                 >
                   <i className="now-ui-icons business_bank mr-1"></i>
                   <p>关于我们</p>
                 </NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink
+                  href="/login-page"
+                >
+                  <i className="now-ui-icons users_circle-08 mr-1"></i>
+                  <p>登录</p>
+                </NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  href="#pablo"
+                  nav
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className="now-ui-icons users_circle-08 mr-1"></i>
+                  <p>我的</p>
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem to="/my-page" tag={Link}>
+                    <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
+                    个人中心
+                  </DropdownItem>
+                  <DropdownItem
+                    href="/next-page"
+                  >
+                    <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
+                    退出登录
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
             </Nav>
           </Collapse>
         </Container>
