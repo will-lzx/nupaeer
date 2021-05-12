@@ -59,7 +59,7 @@ function JoinPage() {
               <h3 className="title">为什么要选择LEADSUN？</h3>
               <Row className="justify-content-md-center">
                 <Col lg="4" md="12">
-                  <h5 className="title">品牌认可度</h5>
+                  <h5 className="title">品牌认可度高</h5>
                   <img className="introduce-img" src={ require("assets/img/WechatIMG83.jpeg") } alt="..."></img>
                 </Col>
                 <Col lg="4" md="12">

@@ -9,8 +9,8 @@ function DarkFooter() {
     <footer className="footer" data-background-color="black">
       <Container>
         <div className="copyright" id="copyright">
-          沪ICP备2021012993号-1 
-          © {new Date().getFullYear()}, Designed by{" "}
+          沪ICP备2021012993号-1<br/>
+          © {new Date().getFullYear()}  {" "}
           <a
             href="/"
           >
