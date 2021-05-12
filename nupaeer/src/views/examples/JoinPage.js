@@ -60,7 +60,7 @@ function JoinPage() {
               <Row className="justify-content-md-center">
                 <Col lg="4" md="12">
                   <h5 className="title">品牌认可度</h5>
-                  <img className="introduce-img" src={ require("assets/img/logo.jpeg") } alt="..."></img>
+                  <img className="introduce-img" src={ require("assets/img/WechatIMG83.jpeg") } alt="..."></img>
                 </Col>
                 <Col lg="4" md="12">
                   <h5 className="title">拥有完善的培训体系，提供一对一培训指导, 帮您快速售卖产品</h5>
