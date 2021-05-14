@@ -95,6 +95,8 @@ function JoinPage() {
       })
       .then((res) => {
         console.log(res.result);
+        alert("快去联系销售总监，享受代理商福利吧")
+        setModalLive(false)
       })
       .catch(console.error);
   }
@@ -228,7 +230,7 @@ function JoinPage() {
                 <Button
                   color="primary"
                   type="submit"
-                  onClick={() => setModalLive(false)}
+                  onClick={() => user_query()}
                 >
                   提交
                 </Button>
