@@ -48,10 +48,10 @@ function AboutPage() {
             </Row>
             <div className="title">
               <h3 className="title">联系我们</h3>
-              <p>联系电话：13501981345</p>
+              <p>联系电话：13761709038</p>
               <p>微信：leadsun0401</p>
               <p>微信公众号：leadsun0401</p>
-              <p>邮箱：hr@nupaeer.com</p>
+              <p>邮箱：liuzhixiang@nupaeer.com</p>
             </div>
           </Container>
         </div>
