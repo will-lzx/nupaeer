@@ -3,7 +3,7 @@
     "version": "2.0",
     "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
     "functionRoot": "./functions",
-    "functions": ["my_hello_world"],
+    "functions": ["user_query"],
     "region": "ap-shanghai",
     "framework": {
         "name": "leadsun",

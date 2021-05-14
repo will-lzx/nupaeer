@@ -17,6 +17,7 @@ import {
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
+import cloudbase from "@cloudbase/js-sdk";
 
 function JoinPage() {
   const [modalLive, setModalLive] = React.useState(false);
@@ -31,6 +32,72 @@ function JoinPage() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+
+  // function fetch_ticket() {
+  //   const app = cloudbase.init({
+  //     env: "leadsun-3gdsjeyzd3c7c324"
+  //   });
+
+  //   app
+  //     .callFunction({
+  //       // 云函数名称
+  //       name: "refresh_ticket",
+  //       // 传给云函数的参数
+  //       data: {
+  //       }
+  //     })
+  //     .then((res) => {
+  //       console.log("res:", res.result)
+  //       return res.result;
+  //     })
+  //     .catch(console.error);
+  // }
+
+  async function user_query() {
+    const app = cloudbase.init({
+      env: "leadsun-3gdsjeyzd3c7c324"
+    });
+
+    // const email = "liuzhixiang@nupaeer.com";
+    // const password = "Password01?";
+    const auth = app.auth();
+    
+    const loginState = await auth.getLoginState();
+    
+    // 1. 建议登录前检查当前是否已经登录
+    if(!loginState) {
+      // 2. 请求开发者自有服务接口获取ticket
+      app
+      .callFunction({
+        // 云函数名称
+        name: "refresh_ticket",
+        // 传给云函数的参数
+        data: {
+        }
+      })
+      .then((res) => {
+        console.log("res:", res.result)
+        // 3. signin with ticket
+        auth.customAuthProvider().signIn(res.result);
+      })
+      .catch(console.error);
+    }
+
+    // console.log(loginState)
+
+    app
+      .callFunction({
+        // 云函数名称
+        name: "user_query",
+        // 传给云函数的参数
+        data: {
+        }
+      })
+      .then((res) => {
+        console.log(res.result);
+      })
+      .catch(console.error);
+  }
   return (
     <>
       <IndexNavbar />
@@ -74,15 +141,19 @@ function JoinPage() {
             </div>
             <div className="text-center">
               <h3 className="title">成为代理的权益</h3>
-              <h4 className="title">进货价立减优惠</h4>
+              <h4 className="title">模式一:一次性拿货</h4>
               <h5 className="description">
-                <p>初始进货价六折优惠;</p>
-                <p>代理销售每增加5千，进货价再减5%;</p>
-                <p>进货价在初始进货价基础上，最高再减30%.</p>
+                <p>1~99套6折优惠;</p>
+                <p>100~999件5折优惠;</p>
+                <p>1000~9999件4折优惠;</p>
+                <p>10000件以上3折优惠;</p>
+                <p>经销商额外优惠：</p>
+                <p>优惠一：一次性拿货大于100件，每件再优惠1元，上不封顶</p>
+                <p>优惠二：经销商转介绍，根据二级经销商的拿货数量，每件再奖励1元给一级经销商</p>
               </h5>
-              <h4 className="title">代理转推荐有高额奖励</h4>
+              <h4 className="title">模式二:一件代发</h4>
               <h5 className="description">
-                <p>推荐代理季度总销售额的5%</p>
+                <p>零售价的40%作为奖励返还给经销商</p>
               </h5>
               <Button
                 color="info"

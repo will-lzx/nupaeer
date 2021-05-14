@@ -34,6 +34,7 @@ import AboutPage from "views/examples/AboutPage.js";
 import NextPage from "views/examples/NextPage.js";
 import JoinPage from "views/examples/JoinPage.js";
 
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

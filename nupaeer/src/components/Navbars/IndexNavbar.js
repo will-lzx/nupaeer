@@ -147,7 +147,7 @@ function IndexNavbar() {
                     个人中心
                   </DropdownItem>
                   <DropdownItem
-                    href="/next-page"
+                    href="/index"
                   >
                     <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
                     退出登录

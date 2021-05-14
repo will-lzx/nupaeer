@@ -14,14 +14,10 @@ import {
 
 const items = [
   {
-    src: require("assets/img/WechatIMG61.jpeg"),
-    altText: "Nature, United States",
-    caption: "Nature, United States",
+    src: require("assets/img/WechatIMG2382.jpeg"),
   },
   {
-    src: require("assets/img/WechatIMG62.jpeg"),
-    altText: "Somewhere Beyond, United States",
-    caption: "Somewhere Beyond, United States",
+    src: require("assets/img/WechatIMG2383.jpeg"),
   },
   {
     src: require("assets/img/WechatIMG64.jpeg"),
