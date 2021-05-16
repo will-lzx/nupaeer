@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 // reactstrap components
 import {
@@ -20,86 +20,131 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 import cloudbase from "@cloudbase/js-sdk";
 
 function JoinPage() {
-  const [modalLive, setModalLive] = React.useState(false);
+  const [modalLive, setModalLive] = React.useState(false);   
+
+  const username = useRef("")
+  const phone = useRef("")
+  const delegate_phone = useRef("")
+
+  const app = cloudbase.init({
+    env: "leadsun-3gdsjeyzd3c7c324"
+  });
+
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+
     return function cleanup() {
       document.body.classList.remove("index-page");
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
 
-  // function fetch_ticket() {
-  //   const app = cloudbase.init({
-  //     env: "leadsun-3gdsjeyzd3c7c324"
-  //   });
+  function inputChange(key, event) {
+    switch(key) {
+      case "username":
+        username.current.value = event.target.value
+        break
+      case "phone":
+        phone.current.value = event.target.value
+        break
+      case "delegate_phone":
+        delegate_phone.current.value = event.target.value
+        break
+      default:
+        console.log("set wrong value")
+    }
+  }
 
-  //   app
-  //     .callFunction({
-  //       // 云函数名称
-  //       name: "refresh_ticket",
-  //       // 传给云函数的参数
-  //       data: {
-  //       }
-  //     })
-  //     .then((res) => {
-  //       console.log("res:", res.result)
-  //       return res.result;
-  //     })
-  //     .catch(console.error);
-  // }
-
-  async function user_query() {
-    const app = cloudbase.init({
-      env: "leadsun-3gdsjeyzd3c7c324"
-    });
-
-    // const email = "liuzhixiang@nupaeer.com";
-    // const password = "Password01?";
+  function login() {
     const auth = app.auth();
     
-    const loginState = await auth.getLoginState();
+    const loginState = auth.getLoginState();
+    console.log(loginState)
     
     // 1. 建议登录前检查当前是否已经登录
-    if(!loginState) {
+    
       // 2. 请求开发者自有服务接口获取ticket
-      app
-      .callFunction({
-        // 云函数名称
-        name: "refresh_ticket",
-        // 传给云函数的参数
-        data: {
-        }
-      })
-      .then((res) => {
-        console.log("res:", res.result)
-        // 3. signin with ticket
-        auth.customAuthProvider().signIn(res.result);
-      })
-      .catch(console.error);
-    }
-
-    // console.log(loginState)
-
     app
-      .callFunction({
-        // 云函数名称
-        name: "user_query",
-        // 传给云函数的参数
-        data: {
-        }
-      })
-      .then((res) => {
-        console.log(res.result);
-        alert("快去联系销售总监，享受代理商福利吧")
-        setModalLive(false)
-      })
-      .catch(console.error);
+    .callFunction({
+      // 云函数名称
+      name: "refresh_ticket",
+      // 传给云函数的参数
+      data: {
+      }
+    })
+    .then((res) => {
+      console.log(res)
+      // 3. signin with ticket
+      auth.customAuthProvider().signIn(res.result);
+    })
+    .catch(console.error);
   }
+
+  async function user_insert() {
+    var rest = ""
+    await app
+    .callFunction({
+      // 云函数名称
+      name: "user_insert",
+      // 传给云函数的参数
+      data: {
+        username: username.current.value,
+        phone: phone.current.value,
+        delegate_phone: delegate_phone.current.value
+      }
+    })
+    .then((res) => {
+      rest = res.result
+    })
+    return rest
+  }
+
+  async function user_query() {
+    var rest = ""
+    await app
+    .callFunction({
+      // 云函数名称
+      name: "user_query",
+      // 传给云函数的参数
+      data: {
+        phone: phone.current.value
+      }
+    })
+    .then((res) => {
+      rest =  res.result
+    })
+    .catch(console.error);
+    return rest
+  }
+
+  async function submit() {
+    // login first
+    await login()
+
+    // user query
+    var query_result = await user_query()
+    
+    if (query_result.data.length > 0) {
+      alert("您已经申请过代理了，请勿重复申请，直接联系销售总监下单吧")
+    } else {
+      // user insert
+      var insert_result = await user_insert()
+
+      if(insert_result === null) {
+        alert("申请代理成功，快去联系销售总监，享受代理商福利吧")
+      } else {
+        alert(insert_result)
+      }
+    }
+    // set modal live false
+    setModalLive(false)
+  }
+  
+  
   return (
     <>
       <IndexNavbar />
@@ -190,6 +235,8 @@ function JoinPage() {
                   <Input
                     placeholder="姓名..."
                     type="text"
+                    onChange={inputChange.bind(this, "username")}
+                    ref={username}
                   ></Input>
                 </InputGroup>
                 <InputGroup
@@ -203,6 +250,8 @@ function JoinPage() {
                   <Input
                     placeholder="手机号码..."
                     type="phone"
+                    onChange={inputChange.bind(this, "phone")}
+                    ref={phone}
                   ></Input>
                 </InputGroup>
                 <InputGroup
@@ -216,6 +265,8 @@ function JoinPage() {
                   <Input
                     placeholder="推荐人手机号码(可选)..."
                     type="text"
+                    onChange={inputChange.bind(this, "delegate_phone")}
+                    ref={delegate_phone}
                   ></Input>
                 </InputGroup>
               </div>
@@ -230,7 +281,7 @@ function JoinPage() {
                 <Button
                   color="primary"
                   type="submit"
-                  onClick={() => user_query()}
+                  onClick={() => submit()}
                 >
                   提交
                 </Button>

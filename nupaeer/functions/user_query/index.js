@@ -7,5 +7,11 @@ exports.main = async (event, context) => {
 
   const db = app.database();
 
-  return db.collection("users").get();
+  const phone = event.phone
+
+  return db.collection("users")
+            .where({
+              phone: phone
+            })
+            .get()
 };
