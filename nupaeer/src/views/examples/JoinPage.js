@@ -122,6 +122,19 @@ function JoinPage() {
   }
 
   async function submit() {
+    console.log(username.current.value)
+
+    if(!username.current.value)
+    {
+      alert('姓名不能为空')
+      return
+    }
+
+    if(!phone.current.value){
+      alert('电话号码不能为空')
+      return
+    }
+
     // login first
     await login()
 
@@ -143,7 +156,6 @@ function JoinPage() {
     // set modal live false
     setModalLive(false)
   }
-  
   
   return (
     <>
@@ -235,6 +247,7 @@ function JoinPage() {
                   <Input
                     placeholder="姓名..."
                     type="text"
+                    mustwrite="true"
                     onChange={inputChange.bind(this, "username")}
                     ref={username}
                   ></Input>
@@ -250,6 +263,7 @@ function JoinPage() {
                   <Input
                     placeholder="手机号码..."
                     type="phone"
+                    mustwrite="true"
                     onChange={inputChange.bind(this, "phone")}
                     ref={phone}
                   ></Input>
