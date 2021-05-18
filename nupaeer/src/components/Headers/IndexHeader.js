@@ -24,7 +24,7 @@ function IndexHeader() {
 
   return (
     <>
-      <div className="page-header clear-filter page-header-small" filter-color="white">
+      <div className="page-header clear-filter" filter-color="white">
         <div
           className="page-header-image"
           style={{

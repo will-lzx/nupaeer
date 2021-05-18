@@ -9,18 +9,18 @@ import {
 
 // core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
+import IndexPageHeader from "components/Headers/IndexHeader";
 import DarkFooter from "components/Footers/DarkFooter.js";
 
 function AboutPage() {
   React.useEffect(() => {
-    document.body.classList.add("profile-page");
+    document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
     return function cleanup() {
-      document.body.classList.remove("profile-page");
+      document.body.classList.remove("index-page");
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
@@ -28,7 +28,7 @@ function AboutPage() {
     <>
       <IndexNavbar />
       <div className="wrapper">
-        <ProfilePageHeader />
+        <IndexPageHeader />
         <div className="section">
           <Container>
             <h3 className="title">关于我们</h3>
