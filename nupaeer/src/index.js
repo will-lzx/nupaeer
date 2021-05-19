@@ -33,6 +33,7 @@ import MyPage from "views/examples/MyPage.js";
 import AboutPage from "views/examples/AboutPage.js";
 import NextPage from "views/examples/NextPage.js";
 import JoinPage from "views/examples/JoinPage.js";
+import Join from "views/index-sections/Join.js";
 
 
 ReactDOM.render(
@@ -51,6 +52,10 @@ ReactDOM.render(
         <Route
           path="/join-page"
           render={(props) => <JoinPage {...props} />}
+        />
+        <Route
+          path="/join"
+          render={(props) => <Join {...props} />}
         />
         <Route
           path="/login-page"

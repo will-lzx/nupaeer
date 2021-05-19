@@ -12,7 +12,7 @@ import {
 
 // core components
 
-function Order() {
+function Join() {
   const [modalLive, setModalLive] = React.useState(false);
   return (
     <>
@@ -56,4 +56,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default Join;
