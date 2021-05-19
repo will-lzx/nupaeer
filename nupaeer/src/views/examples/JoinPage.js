@@ -2,8 +2,6 @@ import React, { useRef } from "react";
 
 // reactstrap components
 import {
-  Row,
-  Col,
   Button,
   Modal,
   Input,
@@ -164,40 +162,6 @@ function JoinPage() {
         <IndexHeader />
         <div className="section">
           <Container>
-            <div className="text-center">
-              <h3 className="title">为什么要选择加盟代理电子烟？</h3>
-              <Row className="justify-content-md-center">
-                <Col lg="4" md="12">
-                  <h5 className="title">投资小，回报大</h5>
-                  <img className="rounded-circle introduce-img" src={ require("assets/img/money.jpeg") } alt="..."></img>
-                </Col>
-                <Col lg="4" md="12">
-                  <h5 className="title">整个行业处于起步期，机会多</h5>
-                  <img className="rounded-circle introduce-img" src={ require("assets/img/future.jpeg") } alt="..."></img>
-                </Col>
-                <Col lg="4" md="12">
-                  <h5 className="title">国家对电子烟的法律法规越来越完善</h5>
-                  <img className="rounded-circle introduce-img" src={ require("assets/img/lawyer.jpeg") } alt="..."></img>
-                </Col>
-              </Row>
-            </div>
-            <div className="text-center">
-              <h3 className="title">为什么要选择LEADSUN？</h3>
-              <Row className="justify-content-md-center">
-                <Col lg="4" md="12">
-                  <h5 className="title">品牌认可度高</h5>
-                  <img className="introduce-img" src={ require("assets/img/WechatIMG83.jpeg") } alt="..."></img>
-                </Col>
-                <Col lg="4" md="12">
-                  <h5 className="title">拥有完善的培训体系，提供一对一培训指导, 帮您快速售卖产品</h5>
-                  <img className="introduce-img" src={ require("assets/img/training.jpeg") } alt="..."></img>
-                </Col>
-                <Col lg="4" md="12">
-                  <h5 className="title">拥有完整的团队，从设计，生产，销售，到售后服务</h5>
-                  <img className="introduce-img" src={ require("assets/img/produce.jpeg") } alt="..."></img>
-                </Col>
-              </Row>
-            </div>
             <div className="text-center">
               <h3 className="title">成为代理的权益</h3>
               <h4 className="title">模式一:一次性拿货</h4>
