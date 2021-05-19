@@ -18,6 +18,8 @@ import {
 
 function Order() {
 
+  let [disable, setDiableLive] = React.useState(false)
+
   const app = cloudbase.init({
     env: "leadsun-3gdsjeyzd3c7c324"
   });
@@ -118,14 +120,17 @@ function Order() {
   }
 
   async function submit() {
+    setDiableLive(true)
     if(!username.current.value)
     {
       alert('姓名不能为空')
+      setDiableLive(false)
       return
     }
 
     if(!phone.current.value){
       alert('电话号码不能为空')
+      setDiableLive(false)
       return
     }
 
@@ -134,6 +139,8 @@ function Order() {
 
     // user query
     var query_result = await user_query()
+
+    setDiableLive(false)
     
     if (query_result.data.length > 0) {
       alert("您已经申请过代理了，请勿重复申请，直接联系销售总监下单吧")
@@ -211,13 +218,16 @@ function Order() {
             <Button
               color="secondary"
               type="button"
+              disable={disable}
               href='/join-page'
             >
-              取消
+              返回
             </Button>
             <Button
               color="primary"
               type="submit"
+              disabled={disable}
+              toggle={() => setDiableLive(false)}
               onClick={() => submit()}
             >
               提交
