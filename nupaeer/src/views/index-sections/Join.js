@@ -203,7 +203,7 @@ function Order() {
             >
               <InputGroupAddon addonType="prepend">
                 <InputGroupText>
-                  <i className="now-ui-icons users_circle-08"></i>
+                  <i className="now-ui-icons users_single-02"></i>
                 </InputGroupText>
               </InputGroupAddon>
               <Input
@@ -218,7 +218,8 @@ function Order() {
             <Button
               color="secondary"
               type="button"
-              disable={disable}
+              disabled={disable}
+              toggle={() => setDiableLive(false)}
               href='/join-page'
             >
               返回
